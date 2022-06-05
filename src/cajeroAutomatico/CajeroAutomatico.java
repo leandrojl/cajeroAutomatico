@@ -93,6 +93,7 @@ public class CajeroAutomatico
 					
 					{
 						System.out.println("DNI NO ENCONTRADO, INGRESE UN DNI CORRECTO");
+						salirDelMenu = true;
 					}
 				
 			}while(salirDelMenu == true);
@@ -193,6 +194,8 @@ public class CajeroAutomatico
 						switch(salirDelProgramaFinal) {
 						
 						case 1:
+							
+							usuarioActivo = null;
 							
 							salirDelMenu = false;
 							
