@@ -11,7 +11,6 @@ public class CajeroAutomatico
 		
 		UsuarioCajeroAutomatico vectorDePersonas[] = new UsuarioCajeroAutomatico[5];
 		
-		
 		//DECLARATION OF VARIABLES AND OBJETCS
 		//DECLARACION DE VARIABLES Y OBJETOS
 		
@@ -40,20 +39,21 @@ public class CajeroAutomatico
 		//HERE BEGINS THE REGISTRATION OF THE USERS
 		
 		for (int i = 0; i < vectorDePersonas.length; i++) {
+			
 			System.out.println("--------------------------------------------\n");
+			
 			System.out.println("INGRESE NOMBRE DE LA PERSONA = " + i);
+			
 			String nombreTemporal = teclado.next();
-		
+			
 			System.out.println("INGRESE APELLIDO DE LA PERSONA = " + i);
 			
 			String apellidoTemporal = teclado.next();
-			
 			
 			//VALIDACION DE ENTRADA DE NUMERO ENTERO-----------------------------------------------
 			do {
 				
 				System.out.println("INGRESE DNI DE LA PERSONA = " + i);
-				
 				
 			    while (!teclado.hasNextInt()) {
 			    	System.out.println("--------------------------------------------\n");
@@ -68,7 +68,7 @@ public class CajeroAutomatico
 			//FIN DE ALGORITMO DE VALIDACION DE ENTEROS---------------------------------------------
 			
 			//ALGORTIMO DE VALIDACION DE ENTRADA DE NUMEROS ENTEROS-----------------------------------------------
-			do {
+			do{
 				
 				System.out.println("INGRESE SALDO DE LA PERSONA = " + i);
 				
@@ -82,302 +82,302 @@ public class CajeroAutomatico
 			    }
 			    saldoTemporal = teclado.nextInt();
 			    salirDelDoWhile = false;
-			} while (salirDelDoWhile == true);
+			}while (salirDelDoWhile == true);
 			//FIN DE ALGORITMO DE VALIDACION DE ENTEROS----------------------------------------------------------
 			
-			
-			
-			
-			
-			//EN LA LINEA 42 SE CREAN LOS USUARIOS INVOCANDO AL CONSTRUCTOR QUE TOMA 3 PARAMETROS
-			//LINE 42 USERS ARE CREATED USING THE CONSTRUCTOR THAT TAKES THREE PARAMETERS
-			
-			vectorDePersonas[i]=new UsuarioCajeroAutomatico(nombreTemporal, apellidoTemporal, dniTemporal, saldoTemporal);
+			vectorDePersonas[i]=new UsuarioCajeroAutomatico(nombreTemporal, apellidoTemporal, dniTemporal, saldoTemporal); //CREATION OF OBJECTS
 			
 			}
-		do {
-			
 		
 		do {
 			
-			
-			
-			//ALGORITMO DE VALIDACION DE ENTRADA DE NUMERO ENTERO-----------------------------------------------
-			do {
-				System.out.println("--------------------------------------------\n");
-				
-				System.out.println("PARA COMENZAR CORRECTAMENTE EL PROGRAMA\n");
-				System.out.println("INGRESE EL DNI DE LA PERSONA A OPERAR:\n");
-				
-				
-			    while (!teclado.hasNextInt()) {
-			    	System.out.println("--------------------------------------------\n");
-			        System.out.println("CARACTER INVALIDO, POR FAVOR INGRESE EL DNI\n");
-			        
-			        teclado.next(); // this is important!
-			    }
-			    dniTemporal = teclado.nextInt();
-			    salirDelDoWhile = false;
-			} while (salirDelDoWhile == true);
-			//FIN DE ALGORITMO DE VALIDACION DE ENTEROS-----------------------------------------------------------
-				
-				for(int i= 0; i < vectorDePersonas.length; i++) 
+		
+			do 
 				{
-					if(dniTemporal == vectorDePersonas[i].getDni()) 
+				
+				//ALGORITMO DE VALIDACION DE ENTRADA DE NUMERO ENTERO-----------------------------------------------
+					do 
 						{
-						
-						usuarioActivo = vectorDePersonas[i]; 
-						
-						salirDelMenu = false; 
-						}	
-				}
-				
-				if(usuarioActivo != null) 
-				
-				{
-					
-					if(dniTemporal == usuarioActivo.getDni()) 
-					
-					{
 						System.out.println("--------------------------------------------\n");
-						System.out.println("BIENVENIDO AL CAJERO AUTOMATICO\n");
-						
-						System.out.println(usuarioActivo.getNombre()+" "+usuarioActivo.getApellido()+"\n");
-						
-						System.out.println("DNI: "+usuarioActivo.getDni()+"\n");
-						
-					}
-				
-				}
-				
-				else
 					
-					{
-						System.out.println("--------------------------------------------\n");
-						System.out.println("DNI NO ENCONTRADO, INGRESE UN DNI CORRECTO\n");
-						System.out.println("--------------------------------------------\n");
-						
-						salirDelMenu = true;
-					}
-				
-			}while(salirDelMenu == true);
-		
-		do {
-			
-			System.out.println("--------------------------------------------\n");
-			
-			System.out.println("Seleccione la opcion del menu:\n");
-			
-			System.out.println("a) DEPOSITAR\n");
-			
-			System.out.println("b) EXTRAER\n");
-			
-			System.out.println("c) CONSULTAR\n");
-			
-			System.out.println("d) SALIR\n");
-			
-			
-			System.out.println("--------------------------------------------\n");
-			entrarAlMenu = teclado.next();
-			
-			
-			switch(entrarAlMenu) 
-			
-			{
-			
-				case "a":
+						System.out.println("PARA COMENZAR CORRECTAMENTE EL PROGRAMA\n");
 					
-					//ALGORITMO DE VALIDACION DE NUMERO DOUBLE-----------------------------
-					do {
-						
-						System.out.println("--------------------------------------------\n");
-						System.out.println("MONTO A DEPOSITAR:\n");
-						
-						
-					    while (!teclado.hasNextDouble()) {
+						System.out.println("INGRESE EL DNI DE LA PERSONA A OPERAR:\n");
+					
+					    while (!teclado.hasNextInt()) {
 					    	System.out.println("--------------------------------------------\n");
-					        System.out.println("CARACTER INVALIDO, POR FAVOR INGRESE EL MONTO A DEPOSITAR\n");
-					        System.out.println("--------------------------------------------\n");
-					        System.out.println("MONTO A DEPOSITAR:\n");
+					        System.out.println("CARACTER INVALIDO, POR FAVOR INGRESE EL DNI\n");
 					        
 					        teclado.next(); // this is important!
 					    }
-					    saldoACargar = teclado.nextDouble();
+				    
+					    dniTemporal = teclado.nextInt();
+				    
 					    salirDelDoWhile = false;
-					} while (salirDelDoWhile == true);
-					//---------------------------------------------------------------------
+				    
+					}while (salirDelDoWhile == true);
+					//FIN DE ALGORITMO DE VALIDACION DE ENTEROS-----------------------------------------------------------
 					
-					totalidadDeSaldo = usuarioActivo.getSaldo() + saldoACargar;
-					
-					usuarioActivo.setSaldo(totalidadDeSaldo);
-					
-					salirDelMenu = true;
-					System.out.println("--------------------------------------------\n");
-					System.out.println("HA DEPOSITADO CON EXITO: "+ "$"+ saldoACargar+"\n");
-					System.out.println("--------------------------------------------\n");
-					
-					break;
-					
-				case "b":
-					
-					boolean salirDelWhile = true;
-					
-					while(salirDelWhile == true) 
-						
+					for(int i= 0; i < vectorDePersonas.length; i++) 
 					{
-						
-						
-						
-						//ALGORITMO DE VALIDACION DE NUMERO DOUBLE
-						do {
-							
-							System.out.println("--------------------------------------------\n");
-							System.out.println("USTED TIENE DISPONIBLE: $"+ usuarioActivo.getSaldo()+"\n");
-							System.out.println("MONTO A EXTRAER:\n");
-							
-							
-						    while (!teclado.hasNextDouble()) {
-						    	System.out.println("--------------------------------------------\n");
-						        System.out.println("CARACTER INVALIDO, POR FAVOR INGRESE EL MONTO A EXTRAER\n");
-						        System.out.println("--------------------------------------------\n");
-						        System.out.println("MONTO A EXTRAER:\n");
-						        teclado.next(); // this is important!
-						    }
-						    saldoARetirar = teclado.nextDouble();
-						    salirDelDoWhile = false;
-						} while (salirDelDoWhile == true);
-						
-						
-						if(saldoARetirar <= usuarioActivo.getSaldo()) 
-						
+						if(dniTemporal == vectorDePersonas[i].getDni()) 
 							{
-								System.out.println("--------------------------------------------\n");
-								System.out.println("HA RETIRADO EXITOSAMENTE: $"+saldoARetirar+"\n");
-								System.out.println("--------------------------------------------\n");
-								
-								totalidadDeSaldo = usuarioActivo.getSaldo() - saldoARetirar;
-								
-								usuarioActivo.setSaldo(totalidadDeSaldo);
-								
-								salirDelWhile = false;
-								
-								salirDelMenu = true;
-								
-							}
-						
-						else 
 							
-							{
-								System.out.println("--------------------------------------------\n");
-								System.out.println("NO POSEE SALDO SUFICIENTE\n");
-								System.out.println("--------------------------------------------\n");
-								
-								salirDelWhile = true;
-							}
-						
+							usuarioActivo = vectorDePersonas[i]; 
+							
+							salirDelMenu = false; 
+							}	
 					}
 					
-					break;
+					if(usuarioActivo != null) 
 					
-				case "c":
-					System.out.println("--------------------------------------------\n");
-					System.out.println(usuarioActivo.getNombre()+" "+ usuarioActivo.getApellido()+"\n" );
-					System.out.println("SU SALDO ES: $"+usuarioActivo.getSaldo()+"\n");
-					
-					
-					
-					
-					salirDelMenu = true;
-					
-					break;
-					
-				case "d":
-					do {
+					{
 						
+						if(dniTemporal == usuarioActivo.getDni()) 
 						
+						{
+							System.out.println("--------------------------------------------\n");
+							System.out.println("BIENVENIDO AL CAJERO AUTOMATICO\n");
+							
+							System.out.println(usuarioActivo.getNombre()+" "+usuarioActivo.getApellido()+"\n");
+							
+							System.out.println("DNI: "+usuarioActivo.getDni()+"\n");
+							
+						}
+					
+					}
+					
+					else
 						
+						{
+							System.out.println("--------------------------------------------\n");
+							System.out.println("DNI NO ENCONTRADO, INGRESE UN DNI CORRECTO\n");
+							System.out.println("--------------------------------------------\n");
+							
+							salirDelMenu = true;
+						}
+					
+				}while(salirDelMenu == true);
+		
+			do {
+				
+				System.out.println("--------------------------------------------\n");
+				
+				System.out.println("Seleccione la opcion del menu:\n");
+				
+				System.out.println("a) DEPOSITAR\n");
+				
+				System.out.println("b) EXTRAER\n");
+				
+				System.out.println("c) CONSULTAR\n");
+				
+				System.out.println("d) SALIR\n");
+				
+				
+				System.out.println("--------------------------------------------\n");
+				entrarAlMenu = teclado.next();
+				
+				
+				switch(entrarAlMenu) 
+				
+				{
+				
+					case "a":
 						
-						
-						//ALGORTIMO DE VALIDACION DE ENTRADA DE NUMEROS ENTEROS-----------------------------------------------
+						//ALGORITMO DE VALIDACION DE NUMERO DOUBLE-----------------------------
 						do {
 							
 							System.out.println("--------------------------------------------\n");
-							System.out.println("ELIJA LA OPCION PARA PROSEGUIR:\n");
-							System.out.println("1) OPERAR CON OTRA CUENTA\n");
-							System.out.println("2) SALIR DEL PROGRAMA\n");
-							System.out.println("--------------------------------------------\n");
 							
+							System.out.println("MONTO A DEPOSITAR:\n");
 							
-						    while (!teclado.hasNextInt()) {
+						    while (!teclado.hasNextDouble()) {
+						    	
 						    	System.out.println("--------------------------------------------\n");
-						        System.out.println("CARACTER INVALIDO, POR FAVOR INGRESE UN NUMERO VALIDO\n");
+						    	
+						        System.out.println("CARACTER INVALIDO, POR FAVOR INGRESE EL MONTO A DEPOSITAR\n");
+						        
 						        System.out.println("--------------------------------------------\n");
+						        
+						        System.out.println("MONTO A DEPOSITAR:\n");
 						        
 						        teclado.next(); // this is important!
 						    }
-						    salirDelProgramaFinal = teclado.nextInt();
+						    
+						    saldoACargar = teclado.nextDouble();
+						    
 						    salirDelDoWhile = false;
+						    
 						} while (salirDelDoWhile == true);
-						//FIN DE ALGORITMO DE VALIDACION DE ENTEROS----------------------------------------------------------
+						//---------------------------------------------------------------------
 						
-						switch(salirDelProgramaFinal) {
+						totalidadDeSaldo = usuarioActivo.getSaldo() + saldoACargar;
 						
-						case 1:
+						usuarioActivo.setSaldo(totalidadDeSaldo);
+						
+						salirDelMenu = true;
+						
+						System.out.println("--------------------------------------------\n");
+						
+						System.out.println("HA DEPOSITADO CON EXITO: "+ "$"+ saldoACargar+"\n");
+						
+						System.out.println("--------------------------------------------\n");
+						
+						break;
+						
+					case "b":
+						
+						boolean salirDelWhile = true;
+						
+						while(salirDelWhile == true) 
 							
-							usuarioActivo = null;
-							
-							salirDelMenu = false;
-							
-							salirDelPrograma = true;
-							
-							salirDelMenuSalir = false;
-							
-							break;
-							
-						case 2:
-							System.out.println("--------------------------------------------\n");
-							System.out.println("HA SALIDO EXITOSAMENTE DEL PROGRAMA\n");
-							System.out.println("--------------------------------------------\n");
-							
-							salirDelMenu = false;
-							
-							salirDelPrograma = false;
-							
-							salirDelMenuSalir = false;
-							
-							break;
-							
-						default:
-							
-							System.out.println("--------------------------------------------\n");
-							System.out.println("CARACTER INCORRECTO, INGRESE UN CARACTER VALIDO\n");
-							System.out.println("--------------------------------------------\n");
+						{
+							//ALGORITMO DE VALIDACION DE NUMERO DOUBLE
+							do {
+								
+								System.out.println("--------------------------------------------\n");
+								System.out.println("USTED TIENE DISPONIBLE: $"+ usuarioActivo.getSaldo()+"\n");
+								System.out.println("MONTO A EXTRAER:\n");
+								
+								
+							    while (!teclado.hasNextDouble()) {
+							    	System.out.println("--------------------------------------------\n");
+							        System.out.println("CARACTER INVALIDO, POR FAVOR INGRESE EL MONTO A EXTRAER\n");
+							        System.out.println("--------------------------------------------\n");
+							        System.out.println("MONTO A EXTRAER:\n");
+							        teclado.next(); // this is important!
+							    }
+							    saldoARetirar = teclado.nextDouble();
+							    salirDelDoWhile = false;
+							} while (salirDelDoWhile == true);
 							
 							
+							if(saldoARetirar <= usuarioActivo.getSaldo()) 
 							
-							salirDelMenuSalir = true;
+								{
+									System.out.println("--------------------------------------------\n");
+									System.out.println("HA RETIRADO EXITOSAMENTE: $"+saldoARetirar+"\n");
+									System.out.println("--------------------------------------------\n");
+									
+									totalidadDeSaldo = usuarioActivo.getSaldo() - saldoARetirar;
+									
+									usuarioActivo.setSaldo(totalidadDeSaldo);
+									
+									salirDelWhile = false;
+									
+									salirDelMenu = true;
+									
+								}
+							
+							else 
+								
+								{
+									System.out.println("--------------------------------------------\n");
+									System.out.println("NO POSEE SALDO SUFICIENTE\n");
+									System.out.println("--------------------------------------------\n");
+									
+									salirDelWhile = true;
+								}
 							
 						}
 						
-					}while(salirDelMenuSalir == true);
-
-					break;
-					
-				default:
-					
-					System.out.println("--------------------------------------------\n");
-					System.out.println("CARACTER INCORRECTO, INGRESE UN CARACTER VALIDO\n");
-					System.out.println("--------------------------------------------\n");
-					
-					
-					
-					salirDelMenu = true;
-					
-				}
+						break;
+						
+					case "c":
+						
+						System.out.println("--------------------------------------------\n");
+						
+						System.out.println(usuarioActivo.getNombre()+" "+ usuarioActivo.getApellido()+"\n" );
+						
+						System.out.println("SU SALDO ES: $"+usuarioActivo.getSaldo()+"\n");
+						
+						salirDelMenu = true;
+						
+						break;
+						
+					case "d":
+						
+						do {
+							//ALGORTIMO DE VALIDACION DE ENTRADA DE NUMEROS ENTEROS-----------------------------------------------
+							do {
+								
+								System.out.println("--------------------------------------------\n");
+								System.out.println("ELIJA LA OPCION PARA PROSEGUIR:\n");
+								System.out.println("1) OPERAR CON OTRA CUENTA\n");
+								System.out.println("2) SALIR DEL PROGRAMA\n");
+								System.out.println("--------------------------------------------\n");
+								
+								
+							    while (!teclado.hasNextInt()) {
+							    	System.out.println("--------------------------------------------\n");
+							        System.out.println("CARACTER INVALIDO, POR FAVOR INGRESE UN NUMERO VALIDO\n");
+							        System.out.println("--------------------------------------------\n");
+							        
+							        teclado.next(); // this is important!
+							    }
+							    salirDelProgramaFinal = teclado.nextInt();
+							    salirDelDoWhile = false;
+							} while (salirDelDoWhile == true);
+							//FIN DE ALGORITMO DE VALIDACION DE ENTEROS----------------------------------------------------------
+							
+							switch(salirDelProgramaFinal) {
+							
+							case 1:
+								
+								usuarioActivo = null;
+								
+								salirDelMenu = false;
+								
+								salirDelPrograma = true;
+								
+								salirDelMenuSalir = false;
+								
+								break;
+								
+							case 2:
+								System.out.println("--------------------------------------------\n");
+								System.out.println("HA SALIDO EXITOSAMENTE DEL PROGRAMA\n");
+								System.out.println("--------------------------------------------\n");
+								
+								salirDelMenu = false;
+								
+								salirDelPrograma = false;
+								
+								salirDelMenuSalir = false;
+								
+								break;
+								
+							default:
+								
+								System.out.println("--------------------------------------------\n");
+								System.out.println("CARACTER INCORRECTO, INGRESE UN CARACTER VALIDO\n");
+								System.out.println("--------------------------------------------\n");
+								
+								
+								
+								salirDelMenuSalir = true;
+								
+							}
+							
+						}while(salirDelMenuSalir == true);
+	
+						break;
+						
+					default:
+						
+						System.out.println("--------------------------------------------\n");
+						
+						System.out.println("CARACTER INCORRECTO, INGRESE UN CARACTER VALIDO\n");
+						
+						System.out.println("--------------------------------------------\n");
+						
+						salirDelMenu = true;
+						
+					}
+				
+			    }
 			
-		    }
-		
-		while(salirDelMenu == true);
+			while(salirDelMenu == true);
 		
 		}while(salirDelPrograma==true);
 	}
