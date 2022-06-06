@@ -9,7 +9,7 @@ public class CajeroAutomatico
 	
 	{
 		
-		UsuarioCajeroAutomatico vectorDePersonas[] = new UsuarioCajeroAutomatico[2];
+		UsuarioCajeroAutomatico vectorDePersonas[] = new UsuarioCajeroAutomatico[1];
 
 		Scanner teclado = new Scanner(System.in);
 		String entrarAlMenu="";
@@ -17,34 +17,70 @@ public class CajeroAutomatico
 		boolean salirDelPrograma = true;
 		boolean validarDatos = false;
 		boolean salirDelMenuSalir = true;
+		boolean salirDelDoWhile = true;
 		UsuarioCajeroAutomatico usuarioActivo = null;
 		double totalidadDeSaldo = 0.0;
+		int dniTemporal = 0;
+		double saldoTemporal = 0;
 		
-		System.out.println("--------------------------------------------\n");
-		System.out.println("Bienvenido al Simulador de Cajero Automatico\n");
-		System.out.println("Crear 5 usuarios con nombre, apellido y saldo en cuenta:\n");
-		System.out.println("--------------------------------------------");
+		System.out.println(" ---------------------------------------------------------------");
+		System.out.println("|       Bienvenido al Simulador de Cajero Automatico: ATM       |");
+		System.out.println("|                                                               |");
+		System.out.println("| Crear 5 usuarios con nombre, apellido, dni y saldo en cuenta: |");
+		System.out.println(" ---------------------------------------------------------------\n");
 		
 		//ACA COMIENZA EL ALTA DE LOS USUARIOS
 		//HERE BEGINS THE REGISTRATION OF THE USERS
 		
 		for (int i = 0; i < vectorDePersonas.length; i++) {
-			
-			System.out.println("*Ingrese el nombre de la persona:" + i);
-			
+			System.out.println("--------------------------------------------");
+			System.out.println("INGRESE NOMBRE DE LA PERSONA = " + i);
 			String nombreTemporal = teclado.next();
-			
-			System.out.println("*Ingrese el apellido de la persona:" + i);
+		
+			System.out.println("INGRESE APELLIDO DE LA PERSONA = " + i);
 			
 			String apellidoTemporal = teclado.next();
 			
-			System.out.println("*Ingrese el dni de la persona:" + i);
 			
-			int dniTemporal = teclado.nextInt();
+			//VALIDACION DE ENTRADA DE NUMERO ENTERO-----------------------------------------------
+			do {
+				
+				System.out.println("INGRESE DNI DE LA PERSONA = " + i);
+				
+				
+			    while (!teclado.hasNextInt()) {
+			    	System.out.println("--------------------------------------------\n");
+			        System.out.println("CARACTER INVALIDO, POR FAVOR INGRESE EL DNI\n");
+			        System.out.println("--------------------------------------------\n");
+			        
+			        teclado.next(); // this is important!
+			    }
+			    dniTemporal = teclado.nextInt();
+			    salirDelDoWhile = false;
+			} while (salirDelDoWhile == true);
+			//FIN DE ALGORITMO DE VALIDACION DE ENTEROS---------------------------------------------
 			
-			System.out.println("*Ingrese el saldo de la persona:" + i);
+			//ALGORTIMO DE VALIDACION DE ENTRADA DE NUMEROS ENTEROS-----------------------------------------------
+			do {
+				System.out.println("--------------------------------------------\n");
+				System.out.println("INGRESE SALDO DE LA PERSONA = " + i);
+				
+				
+			    while (!teclado.hasNextInt()) {
+			    	System.out.println("--------------------------------------------\n");
+			        System.out.println("CARACTER INVALIDO, POR FAVOR INGRESE EL SALDO\n");
+			        System.out.println("--------------------------------------------\n");
+			        
+			        teclado.next(); // this is important!
+			    }
+			    saldoTemporal = teclado.nextInt();
+			    salirDelDoWhile = false;
+			} while (salirDelDoWhile == true);
+			//FIN DE ALGORITMO DE VALIDACION DE ENTEROS----------------------------------------------------------
 			
-			double saldoTemporal = teclado.nextInt();
+			
+			
+			
 			
 			//EN LA LINEA 42 SE CREAN LOS USUARIOS INVOCANDO AL CONSTRUCTOR QUE TOMA 3 PARAMETROS
 			//LINE 42 USERS ARE CREATED USING THE CONSTRUCTOR THAT TAKES THREE PARAMETERS
@@ -56,11 +92,25 @@ public class CajeroAutomatico
 			
 		
 		do {
-			System.out.println("--------------------------------------------\n");
-			System.out.println("*Ingrese el dni de la persona para operar:");
-			System.out.println("--------------------------------------------\n");
 			
-			int dniTemporal = teclado.nextInt(); 
+			
+			
+			//ALGORITMO DE VALIDACION DE ENTRADA DE NUMERO ENTERO-----------------------------------------------
+			do {
+				System.out.println("--------------------------------------------\n");
+				System.out.println("INGRESE EL DNI DE LA PERSONA A OPERAR:");
+				
+				
+			    while (!teclado.hasNextInt()) {
+			    	System.out.println("--------------------------------------------\n");
+			        System.out.println("CARACTER INVALIDO, POR FAVOR INGRESE EL DNI\n");
+			        
+			        teclado.next(); // this is important!
+			    }
+			    dniTemporal = teclado.nextInt();
+			    salirDelDoWhile = false;
+			} while (salirDelDoWhile == true);
+			//FIN DE ALGORITMO DE VALIDACION DE ENTEROS-----------------------------------------------------------
 				
 				for(int i= 0; i < vectorDePersonas.length; i++) 
 				{
@@ -80,10 +130,12 @@ public class CajeroAutomatico
 					if(dniTemporal == usuarioActivo.getDni()) 
 					
 					{
-						System.out.println("BIENVENIDO AL CAJERO AUTOMATICO");
-						System.out.println(usuarioActivo.getNombre());
-						System.out.println(usuarioActivo.getApellido());
-						System.out.println(usuarioActivo.getDni());
+						System.out.println("--------------------------------------------\n");
+						System.out.println("BIENVENIDO AL CAJERO AUTOMATICO\n");
+						
+						System.out.println(usuarioActivo.getNombre()+" "+usuarioActivo.getApellido());
+						System.out.println("\n");
+						System.out.println("DNI: "+usuarioActivo.getDni());
 						
 					}
 				
@@ -92,7 +144,10 @@ public class CajeroAutomatico
 				else
 					
 					{
-						System.out.println("DNI NO ENCONTRADO, INGRESE UN DNI CORRECTO");
+						System.out.println("--------------------------------------------\n");
+						System.out.println("DNI NO ENCONTRADO, INGRESE UN DNI CORRECTO\n");
+						System.out.println("--------------------------------------------\n");
+						
 						salirDelMenu = true;
 					}
 				
@@ -104,16 +159,16 @@ public class CajeroAutomatico
 			
 			System.out.println("Seleccione la opcion del menu:\n");
 			
-			System.out.println("a) DEPOSITAR");
+			System.out.println("a) DEPOSITAR\n");
 			
-			System.out.println("b) EXTRAER");
+			System.out.println("b) EXTRAER\n");
 			
-			System.out.println("c) CONSULTAR");
+			System.out.println("c) CONSULTAR\n");
 			
-			System.out.println("d) SALIR");
+			System.out.println("d) SALIR\n");
+			
 			
 			System.out.println("--------------------------------------------\n");
-			
 			entrarAlMenu = teclado.next();
 			
 			
@@ -122,8 +177,8 @@ public class CajeroAutomatico
 			{
 			
 				case "a":
-					
-					System.out.println("MONTO A DEPOSITAR:");
+					System.out.println("--------------------------------------------\n");
+					System.out.println("MONTO A DEPOSITAR:\n");
 					
 					double saldoACargar = teclado.nextDouble();
 					
@@ -132,6 +187,9 @@ public class CajeroAutomatico
 					usuarioActivo.setSaldo(totalidadDeSaldo);
 					
 					salirDelMenu = true;
+					System.out.println("--------------------------------------------\n");
+					System.out.println("HA DEPOSITADO CON EXITO: "+ "$"+ saldoACargar);
+					System.out.println("--------------------------------------------\n");
 					
 					break;
 					
@@ -142,14 +200,21 @@ public class CajeroAutomatico
 					while(salirDelWhile == true) 
 						
 					{
-						System.out.println("MONTO A EXTRAER:");
+						
+						System.out.println("--------------------------------------------\n");
+						System.out.println("USTED TIENE DISPONIBLE: $"+ usuarioActivo.getSaldo()+"\n");
+						System.out.println("MONTO A EXTRAER:\n");
+						
 						
 						double saldoARetirar = teclado.nextDouble();
 						
 						if(saldoARetirar <= usuarioActivo.getSaldo()) 
 						
 							{
-								System.out.println("HA RETIRADO EXITOSAMENTE");
+								System.out.println("--------------------------------------------\n");
+								System.out.println("HA RETIRADO EXITOSAMENTE: $"+saldoARetirar+"\n");
+								System.out.println("--------------------------------------------\n");
+								
 								totalidadDeSaldo = usuarioActivo.getSaldo() - saldoARetirar;
 								
 								usuarioActivo.setSaldo(totalidadDeSaldo);
@@ -163,7 +228,10 @@ public class CajeroAutomatico
 						else 
 							
 							{
-								System.out.println("NO POSEE SALDO SUFICIENTE");
+								System.out.println("--------------------------------------------\n");
+								System.out.println("NO POSEE SALDO SUFICIENTE\n");
+								System.out.println("--------------------------------------------\n");
+								
 								salirDelWhile = true;
 							}
 						
@@ -172,10 +240,12 @@ public class CajeroAutomatico
 					break;
 					
 				case "c":
+					System.out.println("--------------------------------------------\n");
+					System.out.println(usuarioActivo.getNombre()+" "+ usuarioActivo.getApellido()+"\n" );
+					System.out.println("SU SALDO ES: $"+usuarioActivo.getSaldo()+"\n");
 					
-					System.out.println("SU SALDO ES:");
 					
-					System.out.println(usuarioActivo.getSaldo());
+					
 					
 					salirDelMenu = true;
 					
@@ -184,10 +254,11 @@ public class CajeroAutomatico
 				case "d":
 					do {
 						System.out.println("--------------------------------------------\n");
-						System.out.println("ELIJA LA OPCION PARA PROSEGUIR:");
-						System.out.println("1) OPERAR CON OTRA CUENTA");
-						System.out.println("2) SALIR DEL PROGRAMA");
+						System.out.println("ELIJA LA OPCION PARA PROSEGUIR:\n");
+						System.out.println("1) OPERAR CON OTRA CUENTA\n");
+						System.out.println("2) SALIR DEL PROGRAMA\n");
 						System.out.println("--------------------------------------------\n");
+						
 						
 						int salirDelProgramaFinal = teclado.nextInt();
 						
@@ -206,8 +277,9 @@ public class CajeroAutomatico
 							break;
 							
 						case 2:
-							
-							System.out.println("HA SALIDO EXITOSAMENTE DEL PROGRAMA");
+							System.out.println("--------------------------------------------");
+							System.out.println("HA SALIDO EXITOSAMENTE DEL PROGRAMA\n");
+							System.out.println("--------------------------------------------");
 							
 							salirDelMenu = false;
 							
@@ -219,11 +291,12 @@ public class CajeroAutomatico
 							
 						default:
 							
-							System.out.println("--------------------------------------------");
-							
-							System.out.println("CARACTER INCORRECTO, INGRESE UN CARACTER VALIDO");
-							
 							System.out.println("--------------------------------------------\n");
+							
+							System.out.println("CARACTER INCORRECTO, INGRESE UN CARACTER VALIDO\n");
+							System.out.println("--------------------------------------------\n");
+							
+							
 							
 							salirDelMenuSalir = true;
 							
@@ -235,11 +308,12 @@ public class CajeroAutomatico
 					
 				default:
 					
-					System.out.println("--------------------------------------------");
-					
-					System.out.println("CARACTER INCORRECTO, INGRESE UN CARACTER VALIDO");
-					
 					System.out.println("--------------------------------------------\n");
+					
+					System.out.println("CARACTER INCORRECTO, INGRESE UN CARACTER VALIDO\n");
+					System.out.println("--------------------------------------------\n");
+					
+					
 					
 					salirDelMenu = true;
 					
